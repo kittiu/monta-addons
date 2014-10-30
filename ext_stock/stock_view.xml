@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- search stock.move -->
+		<record id="view_move_search_ext" model="ir.ui.view">
+            <field name="name">view.move.search.ext</field>
+            <field name="inherit_id" ref="stock.view_move_search" />
+            <field name="model">stock.move</field>
+            <field name="arch" type="xml">
+            	<xpath expr="/search/group/filter[@name='groupby_date']" position="after">
+                	<filter string="Date" name="groupby_docdate" icon="terp-go-month" domain="[]" context="{'group_by':'date'}"/>
+                	<filter string="Partner" name="groupby_partner" icon="terp-go-month" domain="[]" context="{'group_by':'partner_id'}"/>
+               	</xpath>
+            </field>
+        </record>
+    	
+		<!-- Deliver Products -->
+		<record id="view_move_form_ext" model="ir.ui.view">
+            <field name="name">"view.move.form.ext"</field>
+            <field name="inherit_id" ref="stock.view_move_form" />
+            <field name="model">stock.move</field>
+            <field name="arch" type="xml">
+            	<xpath expr="/form/sheet/group/group//field[@name='product_uom']" position="after">
+            	    <field name="uom_desc"/>
+               	</xpath>
+            	<xpath expr="/form/sheet/group//field[@name='create_date']" position="after">
+            	    <field name="picking_id_ref"/>
+               	</xpath>
+            </field>
+        </record>
+		<record id="view_move_picking_tree_ext" model="ir.ui.view">
+            <field name="name">view.move.picking.tree.ext</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree" />
+            <field name="model">stock.move</field>
+            <field name="arch" type="xml">
+            	<xpath expr="/tree/field[@name='product_uom']" position="after">
+            	    <field name="uom_desc"/>
+               	</xpath>
+            </field>
+        </record>
+		<record id="view_move_tree_reception_picking_ext" model="ir.ui.view">
+            <field name="name">view.move.tree.reception.picking.ext</field>
+            <field name="inherit_id" ref="stock.view_move_tree_reception_picking" />
+            <field name="model">stock.move</field>
+            <field name="arch" type="xml">
+            	<xpath expr="/tree/field[@name='product_uom']" position="after">
+            	    <field name="uom_desc"/>
+               	</xpath>
+            </field>
+        </record>
+        
+		<!-- Picking Form -->
+		<record id="view_picking_form_ext" model="ir.ui.view">
+            <field name="name">view.picking.form.ext</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="model">stock.picking.out</field>
+            <field name="arch" type="xml">
+                <field name="stock_journal_id" position="after">
+					<field name="car_plate"/>
+					<field name="total_uom_desc"/>
+                </field>
+            </field>
+        </record>        
+        
+        <!-- Search view Delivery Order -->
+		<record id="view_picking_out_search_ext" model="ir.ui.view">
+            <field name="name">view.picking.out.search.ext</field>
+            <field name="inherit_id" ref="stock.view_picking_out_search" />
+            <field name="model">stock.picking.out</field>
+            <field name="arch" type="xml">
+                <xpath expr="/search/filter[@name='to_invoice']" position="after">
+                    <separator/>
+                    <filter icon="terp-go-today" string="Today" domain="[('min_date','&lt;=',time.strftime('%%Y-%%m-%%d 23:59:59')),('min_date','&gt;=',time.strftime('%%Y-%%m-%%d 00:00:00'))]" help="Invoice processed Today or planned for Today"/>
+                </xpath>
+                <xpath expr="/search/group/filter[@string='Journal']" position="after">
+                    <filter string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                </xpath>
+            </field>
+        </record>        
+
+        <!-- Search view Incoming Shipment -->
+		<record id="view_picking_in_search_ext" model="ir.ui.view">
+            <field name="name">view.picking.in.search.ext</field>
+            <field name="inherit_id" ref="stock.view_picking_in_search" />
+            <field name="model">stock.picking.in</field>
+            <field name="arch" type="xml">
+                <xpath expr="/search/filter[@name='to_invoice']" position="after">
+                    <separator/>
+                    <filter icon="terp-go-today" string="Today" domain="[('min_date','&lt;=',time.strftime('%%Y-%%m-%%d 23:59:59')),('min_date','&gt;=',time.strftime('%%Y-%%m-%%d 00:00:00'))]" help="Invoice processed Today or planned for Today"/>
+                </xpath>
+                <xpath expr="/search/group/filter[@string='Journal']" position="after">
+                    <filter string="Supplier" domain="[]" context="{'group_by':'partner_id'}"/>
+                </xpath>
+            </field>
+        </record>     
+    </data>
+</openerp>

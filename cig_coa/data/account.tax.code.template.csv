@@ -1,0 +1,10 @@
+id,name,code,parent_id/id,sign,info
+tc_root,Thai Chart of Taxes,,,1,
+tc_base,Taxable amounts,,tc_root,1,
+tc_base_vat,Value Added Tax Base,,tc_base,1,
+tc_base_output,Output Tax Base,PP30_4,tc_base_vat,1,
+tc_base_input,Input Tax Base,PP30_6,tc_base_vat,1,
+tc_paid,Taxes to be paid,,tc_root,1,
+tc_vat,Value Added Tax,,tc_paid,1,
+tc_output,Output Tax,PP30_5,tc_vat,1,
+tc_input,Input Tax,PP30_7,tc_vat,-1,

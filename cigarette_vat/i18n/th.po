@@ -1,0 +1,519 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-09 17:31+0000\n"
+"PO-Revision-Date: 2014-06-09 17:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_account_config_settings
+msgid "account.config.settings"
+msgstr "account.config.settings"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:106
+#: code:addons/cigarette_vat/purchase.py:108
+#: code:addons/cigarette_vat/sale.py:117
+#, python-format
+msgid "Mixing between tax included in price and not included in price!"
+msgstr "ผสมกันระหว่างภาษีที่รวมอยู่ในราคาและไม่รวมอยู่ในราคา!"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_balance:0
+msgid "The final balance"
+msgstr "ยอดคงเหลือสุดท้าย"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "{'invisible': [('is_cigarette','=',True)]}"
+msgstr "{'invisible': [('is_cigarette','=',True)]}"
+
+#. module: cigarette_vat
+#: view:account.config.settings:0
+msgid "Supplier"
+msgstr "ผู้ขาย"
+
+#. module: cigarette_vat
+#: view:sale.order:0
+msgid "UoS"
+msgstr "UoS"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:244
+#: code:addons/cigarette_vat/account_invoice.py:270
+#, python-format
+msgid "Error Accounting!"
+msgstr "ข้อผิดพลาดทางบัญชี!"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_pricelist_id:0
+msgid "Wholesale Pricelist for current sales order."
+msgstr "รายการราคาส่งสำหรับการสั่งซื้อปัจจุบัน"
+
+#. module: cigarette_vat
+#: help:res.partner,property_product_wholesale_pricelist_purchase:0
+msgid "This pricelist will be used, instead of the default one, for purchases from the current partner"
+msgstr "This pricelist will be used, instead of the default one, for purchases from the current partner"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_amount_total:0
+msgid "The total amount."
+msgstr "จำนวนเงินทั้งหมด"
+
+#. module: cigarette_vat
+#: field:account.invoice,wholesale_amount_untaxed:0
+msgid "Subtotal"
+msgstr "ยอดรวมเบื้องต้น"
+
+#. module: cigarette_vat
+#: field:product.product,wholesale_list_price:0
+msgid "Wholesale Price"
+msgstr "ราคาส่ง"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_pricelist_id:0
+msgid "The wholesale pricelist sets the currency used for this purchase order. It also computes the supplier price for the selected products/quantities."
+msgstr "The wholesale pricelist sets the currency used for this purchase order. It also computes the supplier price for the selected products/quantities."
+
+#. module: cigarette_vat
+#: help:product.product,wholesale_list_price:0
+msgid "Base price to compute the customer wholesale price. Sometimes called the catalog price."
+msgstr "Base price to compute the customer wholesale price. Sometimes called the catalog price."
+
+#. module: cigarette_vat
+#: help:res.partner,property_product_wholesale_pricelist:0
+msgid "This pricelist will be used, instead of the default one, for sales to the current partner"
+msgstr "This pricelist will be used, instead of the default one, for sales to the current partner"
+
+#. module: cigarette_vat
+#: field:purchase.order,wholesale_amount_tax:0
+#: field:sale.order,wholesale_amount_tax:0
+msgid "Taxes"
+msgstr "ภาษี"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_purchase_order
+msgid "Purchase Order"
+msgstr "ใบสั่งซื้อ"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/purchase.py:161
+#: code:addons/cigarette_vat/sale.py:187
+#, python-format
+msgid "Error!"
+msgstr "ข้อผิดพลาด!"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/sale.py:299
+#, python-format
+msgid "No valid wholesale pricelist line found ! :"
+msgstr "ไม่มีรายการราคาส่งที่ถูกต้อง :"
+
+#. module: cigarette_vat
+#: field:account.invoice,wholesale_amount_tax:0
+msgid "Tax"
+msgstr "ภาษี"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/sale.py:305
+#, python-format
+msgid "Configuration Error!"
+msgstr "การกำหนดค่าผิดพลาด!"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "(update)"
+msgstr "(ปรับปรุง)"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_res_partner
+msgid "Partner"
+msgstr "คู่ค้า"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_sale_order
+msgid "Sales Order"
+msgstr "ใบสั่งขายสินค้า"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "รายการใบสั่งขาย"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "รายการใบสั่งซื้อ"
+
+#. module: cigarette_vat
+#: help:res.partner,property_account_wholesale_disc_customer:0
+#: help:res.partner,property_account_wholesale_disc_supplier:0
+msgid "This account will be used instead of the default one as the wholesale discount account for the current partner"
+msgstr "This account will be used instead of the default one as the wholesale discount account for the current partner"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_stock_picking
+msgid "Picking List"
+msgstr "รายการย้ายสินค้า"
+
+#. module: cigarette_vat
+#: field:product.product,wholesale_standard_price:0
+msgid "Wholesale Cost"
+msgstr "ต้นทุนขายส่ง"
+
+#. module: cigarette_vat
+#: field:purchase.order,wholesale_order_line:0
+#: field:sale.order,wholesale_order_line:0
+msgid "Order Lines"
+msgstr "รายการใบสั่งซื้อ"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: field:account.invoice,wholesale_invoice_line:0
+msgid "Invoice Lines"
+msgstr "รายการใบแจ้งหนี้"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:271
+#, python-format
+msgid "Account for Amount Rounding is not set!"
+msgstr "บัญชีสำหรับการปัดเศษไม่ได้ถูกตั้งค่า!"
+
+#. module: cigarette_vat
+#: view:sale.order:0
+msgid "Sales Order Lines"
+msgstr "รายการใบสั่งขาย"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+msgid "Recompute taxes and total"
+msgstr "คำนวณภาษีและยอดรวมอีกครั้ง"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_balance:0
+msgid "The final balance."
+msgstr "ยอดคงเหลือสุดท้าย"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:105
+#: code:addons/cigarette_vat/purchase.py:107
+#: code:addons/cigarette_vat/sale.py:116
+#, python-format
+msgid "Tax Included in Price Exception!"
+msgstr "ข้อผิดพลาด ภาษีรวมอยู่ในราคา!"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/sale.py:217
+#, python-format
+msgid "Pricelist Warning!"
+msgstr "คำเตือนรายการราคา!"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_amount_tax:0
+msgid "The tax amount"
+msgstr "จำนวนเงินภาษี"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "Total Balance"
+msgstr "ยอดเงินรวม"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "รายการใบแจ้งหนี้"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_amount_untaxed:0
+msgid "The amount without tax"
+msgstr "จำนวนเงินไม่รวมภาษี"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:275
+#, python-format
+msgid "Accounting Rounding"
+msgstr "บัญชีปัดเศษ"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_amount_total:0
+msgid "The total amount"
+msgstr "จำนวนเงินทั้งหมด"
+
+#. module: cigarette_vat
+#: field:purchase.order,wholesale_amount_untaxed:0
+#: field:sale.order,wholesale_amount_untaxed:0
+msgid "Untaxed Amount"
+msgstr "จำนวนเงินก่อนภาษี"
+
+#. module: cigarette_vat
+#: field:res.partner,property_product_wholesale_pricelist_purchase:0
+msgid "Wholesale Purchase Pricelist"
+msgstr "รายการราคาซื้อส่ง"
+
+#. module: cigarette_vat
+#: model:product.price.type,name:cigarette_vat.wholesale_list_price
+msgid "Wholesale Public Price"
+msgstr "ราคาส่งสาธารณะ"
+
+#. module: cigarette_vat
+#: field:account.invoice.line,wholesale_unit_discount:0
+#: field:purchase.order.line,wholesale_unit_discount:0
+#: field:sale.order.line,wholesale_unit_discount:0
+msgid "Wholesale Unit Discount"
+msgstr "ส่วนลดขายส่งต่อหน่วย"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_amount_tax:0
+msgid "The tax amount."
+msgstr "จำนวนเงินภาษี"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_discount:0
+msgid "The total discount."
+msgstr "ส่วนลดรวม"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "Total Amount"
+msgstr "รวมราคาทั้งสิ้น"
+
+#. module: cigarette_vat
+#: field:account.invoice,wholesale_discount:0
+#: field:purchase.order,wholesale_discount:0
+#: field:sale.order,wholesale_discount:0
+msgid "Discount"
+msgstr "ส่วนลด"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_sale_shop
+msgid "Sales Shop"
+msgstr "ร้านค้า"
+
+#. module: cigarette_vat
+#: view:account.config.settings:0
+msgid "Account Wholesale Discount"
+msgstr "บัญชีส่วนลดขายส่ง"
+
+#. module: cigarette_vat
+#: field:account.config.settings,property_account_wholesale_disc_supplier:0
+#: field:res.partner,property_account_wholesale_disc_supplier:0
+msgid "Account Wholesale Discount Supplier"
+msgstr "บัญชีส่วนลดซื้อส่ง"
+
+#. module: cigarette_vat
+#: help:purchase.order,wholesale_discount:0
+msgid "The total discount"
+msgstr "ส่วนลดรวม"
+
+#. module: cigarette_vat
+#: field:account.invoice,wholesale_balance:0
+#: field:purchase.order,wholesale_balance:0
+#: field:sale.order,wholesale_balance:0
+msgid "Balance"
+msgstr "ยอดเงินคงค้าง"
+
+#. module: cigarette_vat
+#: field:sale.order,wholesale_pricelist_id:0
+msgid "Wholesales Pricelist"
+msgstr "รายการราคาส่ง"
+
+#. module: cigarette_vat
+#: model:product.price.type,name:cigarette_vat.wholesale_standard_price
+msgid "Wholesale Cost Price"
+msgstr "ราคาต้นทุนขายส่ง"
+
+#. module: cigarette_vat
+#: field:account.config.settings,property_account_wholesale_disc_customer:0
+#: field:res.partner,property_account_wholesale_disc_customer:0
+msgid "Account Wholesale Discount Customer"
+msgstr "บัญชีส่วนลดขายส่ง"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/sale.py:218
+#, python-format
+msgid "If you change the pricelist of this order (and eventually the currency), prices of existing order lines will not be updated."
+msgstr "ถ้าคุณเปลี่ยนรายการราคาของใบสั่งขายนี้ (และสกุลเงิน) ราคาของรายรายใบสั่งขายที่มีอยู่จะไม่ถูกปรับปรุง"
+
+#. module: cigarette_vat
+#: field:account.invoice.line,price_unit_readonly:0
+#: field:purchase.order.line,price_unit_readonly:0
+#: field:sale.order.line,price_unit_readonly:0
+msgid "Unit Price"
+msgstr "ราคาต่อหน่วย"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_account_invoice
+#: view:sale.order:0
+msgid "Invoice"
+msgstr "ใบแจ้งหนี้"
+
+#. module: cigarette_vat
+#: view:account.config.settings:0
+#: field:account.config.settings,property_account_journal_rounding:0
+#: field:account.journal,property_account_journal_rounding:0
+msgid "Account Rounding"
+msgstr "บัญชีปัดเศษ"
+
+#. module: cigarette_vat
+#: field:res.partner,property_product_wholesale_pricelist:0
+#: field:sale.shop,wholesale_pricelist_id:0
+msgid "Wholesale Pricelist"
+msgstr "รายการราคาส่ง"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:250
+#, python-format
+msgid "Additional Discount"
+msgstr "ส่วนลดเพิ่มเติม"
+
+#. module: cigarette_vat
+#: help:product.product,wholesale_standard_price:0
+msgid "Cost price of the product used for standard stock valuation in accounting and used as a base wholesale price on purchase orders."
+msgstr "Cost price of the product used for standard stock valuation in accounting and used as a base wholesale price on purchase orders."
+
+#. module: cigarette_vat
+#: field:account.invoice.line,wholesale_price_unit:0
+#: field:account.invoice.line,wholesale_price_unit_readonly:0
+#: field:purchase.order.line,wholesale_price_unit:0
+#: field:purchase.order.line,wholesale_price_unit_readonly:0
+#: field:sale.order.line,wholesale_price_unit:0
+#: field:sale.order.line,wholesale_price_unit_readonly:0
+msgid "Wholesale Unit Price"
+msgstr "ราคาส่งต่อหน่วย"
+
+#. module: cigarette_vat
+#: field:account.invoice,wholesale_amount_total:0
+#: field:purchase.order,wholesale_amount_total:0
+#: field:sale.order,wholesale_amount_total:0
+msgid "Wholesale Total"
+msgstr "ขายส่งรวม"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "Total Untaxed Amount"
+msgstr "จำนวนเงินก่อนภาษีรวม"
+
+#. module: cigarette_vat
+#: view:purchase.order:0
+msgid "Purchase Order Lines"
+msgstr "รายการใบสั่งซื้อ"
+
+#. module: cigarette_vat
+#: help:sale.order,wholesale_amount_untaxed:0
+msgid "The amount without tax."
+msgstr "จำนวนเงินก่อนภาษี"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_product_product
+msgid "Product"
+msgstr "สินค้า"
+
+#. module: cigarette_vat
+#: model:ir.model,name:cigarette_vat.model_account_journal
+msgid "Journal"
+msgstr "สมุดรายวัน"
+
+#. module: cigarette_vat
+#: model:product.pricelist,name:cigarette_vat.wholesale_list0
+msgid "Public Wholesale Pricelist"
+msgstr "รายการราคาส่งสาธารณะ"
+
+#. module: cigarette_vat
+#: field:account.invoice,is_price_included_tax:0
+#: field:purchase.order,is_price_included_tax:0
+#: field:sale.order,is_price_included_tax:0
+msgid "Tax Included in Price"
+msgstr "ภาษีรวมอยู่ในราคา"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+#: field:account.invoice,is_cigarette:0
+#: view:purchase.order:0
+#: field:purchase.order,is_cigarette:0
+#: view:sale.order:0
+#: field:sale.order,is_cigarette:0
+msgid "Cigarette"
+msgstr "บุหรี่"
+
+#. module: cigarette_vat
+#: field:purchase.order,wholesale_pricelist_id:0
+msgid "Wholesales Purchase Pricelist"
+msgstr "รายการราคาซื้อส่ง"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/sale.py:296
+#, python-format
+msgid "Cannot find a wholesale pricelist line matching this product and quantity.\n"
+"You have to change either the product, the quantity or the wholesale pricelist."
+msgstr "ไม่สามารถหารายการราคาส่งที่คู่กับสินค้าและปริมาณนี้ \nคุณต้องเปลี่ยนแปลงอย่างใดอย่างหนึ่ง สินค้า ปริมาณหรือรายการราคาส่ง"
+
+#. module: cigarette_vat
+#: view:account.invoice:0
+msgid "Invoice lines"
+msgstr "รายการใบแจ้งหนี้"
+
+#. module: cigarette_vat
+#: view:account.config.settings:0
+msgid "Customer"
+msgstr "ลูกค้า"
+
+#. module: cigarette_vat
+#: field:purchase.order.line,wholesale_price_subtotal:0
+#: field:sale.order.line,wholesale_price_subtotal:0
+msgid "Wholesale Subtotal"
+msgstr "ยอดรวมซื้อส่ง"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/account_invoice.py:245
+#, python-format
+msgid "Account for Wholesale Discount is not set!"
+msgstr "บัญชีสำหรับส่วนลดขายส่งไม่ได้ตั้งค่า!"
+
+#. module: cigarette_vat
+#: model:product.pricelist.version,name:cigarette_vat.wholesale_purchase_ver0
+#: model:product.pricelist.version,name:cigarette_vat.wholesale_ver0
+msgid "Default Public Wholesale Pricelist Version"
+msgstr "เวอร์ชันราคาซื้อส่งสาธรณะเริ่มต้น"
+
+#. module: cigarette_vat
+#: field:account.invoice.line,wholesale_price_subtotal:0
+msgid "Wholesale Amount"
+msgstr "จำนวนเงินขายส่ง"
+
+#. module: cigarette_vat
+#: model:product.pricelist,name:cigarette_vat.wholesale_purchase_list0
+msgid "Default Purchase Wholesale Pricelist"
+msgstr "รายการราคาซื้อส่งเริ่มต้น"
+
+#. module: cigarette_vat
+#: code:addons/cigarette_vat/purchase.py:162
+#: code:addons/cigarette_vat/sale.py:188
+#, python-format
+msgid "Wholesale Pricelist and Pricelist must be of the same currency!"
+msgstr "รายการราคาส่งและรายการราคาจะต้องเป็นสกุลเงินเดียวกัน"
+
+#. module: cigarette_vat
+#: view:account.config.settings:0
+msgid "Accounting"
+msgstr "บัญชี"
+

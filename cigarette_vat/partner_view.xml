@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>        
+        <record id="view_partner_property_form_ext" model="ir.ui.view">
+            <field name="name">view.partner.property.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//page//field[@name='property_product_pricelist']" position="before">
+                	<field name="property_product_wholesale_pricelist" groups="product.group_sale_pricelist"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_partner_property_form_ext2" model="ir.ui.view">
+            <field name="name">view.partner.property.form.ext2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="purchase.view_partner_property_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//page//field[@name='property_product_pricelist_purchase']" position="before">
+                	<field name="property_product_wholesale_pricelist_purchase" groups="product.group_purchase_pricelist"/>
+                </xpath>                
+            </field>
+        </record>
+        <!--
+        Partners Extension
+        -->
+        <record id="view_partner_property_form_ext" model="ir.ui.view">
+            <field name="name">view.partner.property.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="property_account_receivable" position="before">
+                	<field name="property_account_wholesale_disc_customer" groups="account.group_account_invoice" />
+				</field>
+                <field name="property_account_payable" position="before">
+                	<field name="property_account_wholesale_disc_supplier" groups="account.group_account_invoice" />
+				</field>		
+            </field>
+        </record>
+	</data>
+</openerp>

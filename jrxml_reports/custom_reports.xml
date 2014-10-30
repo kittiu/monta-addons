@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<openerp>
+<data>    
+
+	<report string="Tax Invoice (เต็ม)"
+        model="account.invoice"
+        auto="False"
+        name="tax.invoice.sqp"
+        rml="jrxml_reports/custom_reports/monta_tax_invoice_full.jrxml"
+        id="report_tax_invoice_monta" 
+        menu="True"
+        header="False"
+    	attachment=""
+        groups="" 	
+	/> 
+    <record id="report_tax_invoice_monta" model="ir.actions.report.xml">
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+	    <field eval="[(6,0,[ref('account.invoice_form')])]" name="views_id"/>
+	    <field name="invisible">context.get('type',False)&lt;&gt;'out_invoice'</field>
+    </record>
+    
+	<report string="Tax Invoice (ย่อ)"
+        model="account.invoice"
+        auto="False"
+        name="tax.invoice.short.sqp"
+        rml="jrxml_reports/custom_reports/monta_tax_invoice_sht.jrxml"
+        id="report_tax_invoice_short_monta" 
+        menu="True"
+        header="False"
+    	attachment=""
+        groups="" 	
+	/> 
+    <record id="report_tax_invoice_short_monta" model="ir.actions.report.xml">
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+	    <field eval="[(6,0,[ref('account.invoice_form')])]" name="views_id"/>
+	    <field name="invisible">context.get('type',False)&lt;&gt;'out_invoice'</field>
+    </record>    
+    
+
+	<report string="Credit Note"
+        model="account.invoice"
+        auto="False"
+        name="creditnote.sqp"
+        rml="jrxml_reports/custom_reports/monta_credit_note.jrxml"
+        id="report_creditnote_monta" 
+        menu="True"
+        header="False"
+    	attachment=""
+        groups=""
+	/> 
+    <record id="report_creditnote_monta" model="ir.actions.report.xml">
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+	    <field eval="[(6,0,[ref('account.invoice_form')])]" name="views_id"/>
+	    <field name="invisible">context.get('type',False)&lt;&gt;'out_refund'</field>
+    </record>	
+	<report string="Debit Note"
+        model="account.invoice"
+        auto="False"
+        name="debitnote.sqp"
+        rml="jrxml_reports/custom_reports/monta_debit_note.jrxml"
+        id="report_debitnote_monta" 
+        menu="True"
+        header="False"
+    	attachment=""
+        groups=""
+	/>  
+    <record id="report_debitnote_monta" model="ir.actions.report.xml">
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+	    <field eval="[(6,0,[ref('account.invoice_form')])]" name="views_id"/>
+	    <field name="invisible">context.get('type',False)&lt;&gt;'out_invoice'</field>
+    </record>	
+    
+</data>
+</openerp>

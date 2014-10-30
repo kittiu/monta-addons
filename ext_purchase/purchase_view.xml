@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="purchase_order_form_ext" model="ir.ui.view">
+            <field name="name">purchase.order.form.ext</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form" />
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/sheet/group/group/field[@name='date_order']" position="before">
+						<field name="is_boj" invisible="0"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="purchase_order_tree_ext" model="ir.ui.view">
+            <field name="name">purchase.order.tree.ext</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree" />
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/tree/field[@name='date_order']" position="before">
+						<field name="is_boj"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="view_purchase_order_filter_ext" model="ir.ui.view">
+            <field name="name">view.purchase.order.filter.ext</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter" />
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/search/separator" position="before">
+	                    <separator/>
+	                    <filter domain="[('is_boj','=',True)]" string="อบจ" help="อบจ" />
+	                    <filter domain="[('is_boj','=',False)]" string="ไม่ใช่ อบจ" help="ไม่ใช่ อบจ" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

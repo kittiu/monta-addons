@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_voucher_filter_vendor_pay_ext" model="ir.ui.view">
+            <field name="name">view.voucher.filter.vendor.pay.ext</field>
+            <field name="model">account.voucher</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_vendor_pay" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/search/filter[@string='Posted']" position="after">
+	                    <separator/>
+	                    <filter icon="terp-go-today" string="Today" domain="[('date','&lt;=',time.strftime('%%Y-%%m-%%d 23:59:59')),('date','&gt;=',time.strftime('%%Y-%%m-%%d 00:00:00'))]" help="Voucher processed Today or planned for Today"/>
+                    </xpath>
+                </data>
+			</field>
+        </record>    	
+    </data>
+</openerp>

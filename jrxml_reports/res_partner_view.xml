@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="view_partner_form_ext" model="ir.ui.view">
+            <field name="name">view.partner.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+				<xpath expr="/form/sheet/group//field[@name='website']" position="after">
+                	<field name="special_note"/>
+                </xpath>   
+				<xpath expr="/form/sheet/notebook/page[@string='Contacts']" position="after">
+                    <page string="Sahasamit's Invoice">                    
+                    	<group>
+                            <group>
+                                <field name="show_delivery_name"/>
+                                <field name="show_delivery_address"/>
+                                <field name="show_po_reference"/>
+                                <field name="show_expect_do_date"/>
+                                <field name="show_invoice_date"/>
+                                <field name="show_special_note"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>   
+			</field>
+        </record> 
+    </data>
+</openerp>

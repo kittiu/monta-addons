@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_create_invoices_from_invoice" model="ir.ui.view">
+            <field name="name">view.create.invoices.from.invoice</field>
+            <field name="model">create.invoices.from.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Commission Invoice" version="7.0">
+                    <group>
+	                     <group>
+	                     	<field name="num_invoice"/>
+	                     </group>
+	                     <group>
+	                     </group>
+                    </group>
+                    <footer>
+                        <button string="Create Invoice(s)" name="create_invoices_from_invoice" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_create_invoices_from_invoice" model="ir.actions.act_window">
+            <field name="name">Create Invoice(s) from Invoice</field>
+            <field name="res_model">create.invoices.from.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_create_invoices_from_invoice"/>
+           <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

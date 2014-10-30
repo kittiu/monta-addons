@@ -1,0 +1,2 @@
+id,name,category_id/id,uom_type,rounding,factor_inv,factor
+product.product_uom_unit,ห่อ,product.product_uom_categ_unit,reference,1,1,1

@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<document filename="Aged Trial Balance.pdf">
+   <template pageSize="(842.0,595.0)" title="Supplier Over Credit Limit" author="ECOSOFT (info@ecosoft.co.th)" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="28.0" y1="57.0" width="772" height="481"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <blockBackground colorName="#e6e6e6" start="0,0" stop="0,0"/>
+      <blockBackground colorName="#e6e6e6" start="1,0" stop="1,0"/>
+      <blockBackground colorName="#e6e6e6" start="2,0" stop="2,0"/>
+      <blockBackground colorName="#e6e6e6" start="0,1" stop="0,1"/>
+      <blockBackground colorName="#e6e6e6" start="1,1" stop="1,1"/>
+      <blockBackground colorName="#e6e6e6" start="2,1" stop="2,1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table_header_Content">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tableau1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="GRID" colorName="black"/>
+    </blockTableStyle>
+   <blockTableStyle id="Table2">
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,0" stop="-1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,1" stop="-1,1"/>
+      <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="0,2" stop="-1,-1"/>
+      <blockValign value="TOP"/>
+      <blockAlignment value="LEFT" start="2,1" stop="-1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table8">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#cccccc" start="0,0" stop="-1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#cccccc" start="0,0" stop="-1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#cccccc" start="0,0" stop="-1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#cccccc" start="0,0" stop="-1,-1"/>
+    </blockTableStyle>
+
+    <blockTableStyle id="Tableau3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="GRID" colorName="black"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="20.0" leading="25" alignment="CENTER" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="8.3" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P2_content" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Total" fontName="Helvetica-Bold" fontSize="8.5" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Total_right" fontName="Helvetica-Bold" fontSize="8.5" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="15.0" leading="20" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" fontName="Helvetica" alignment="CENTER" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="8.0" leading="14" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P6" fontName="Helvetica" fontSize="8.0" leading="14" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P7" fontName="Helvetica" fontSize="8.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="8.3" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="content" fontName="Helvetica" fontSize="8.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P9" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P10" fontName="Helvetica" fontSize="8.0" leading="14" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P11" fontName="Helvetica" fontSize="8.0" leading="14" alignment="CENTER" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P12" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P13" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P14" fontName="Helvetica" fontSize="8.0" leading="13" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="P10" fontName="Helvetica" alignment="RIGHT" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Table Contents" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="8.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="terp_tblheader_General_Centre" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_Details" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_Details_Right" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_Right_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_x" fontName="Helvetica" fontSize="7.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_header_Right" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_header_Centre" fontName="Helvetica-Bold" fontSize="15.0" leading="15" alignment="CENTER" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_address" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Bold_9" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Right_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_9_italic" fontName="Helvetica-Oblique" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_2" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Right_9_Bold" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+  	<paraStyle name="terp_header" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+
+  </stylesheet>
+  <story>
+
+     <blockTable colWidths="100.0,340.0,100.0" style="Table_header_Content">
+      <tr>
+        <td><para style="terp_header"><font color="white">[[init_data(data['form'])]]</font></para>
+        </td>
+        <td><para style="terp_header_Centre">Supplier Over Credit Limit</para></td>
+        <td><para style="terp_header"><font color="white"> </font></para></td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="110.0,110.0,110.0,110.0,128.0,93.0,110.0" style="Table8">
+      <tr>
+        <td>
+          <para style="terp_tblheader_General_Centre">Report Date</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Suppliers(s)</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Start Date</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Period Length (+days)</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Credit Limit</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Credit Spent</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_General_Centre">Credit Balance</para>
+        </td>
+      </tr>
+        <tr>
+        <td>
+          <para style="terp_default_Centre_8">[[ formatLang(time.strftime('%Y-%m-%d %H:%M:%S'),date_time = True) ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_x">[[ get_partners(data) or '' ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_8">[[ formatLang(data['form']['date_from'],date = True) ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_8">[[ data['form']['period_length'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_8">[[ formatLang(get_credit_limit()) ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_8">[[ formatLang(get_credit_spent()) ]]</para>
+        </td>
+        <td>
+          <para style="terp_default_Centre_8">[[ formatLang(get_credit_balance()) ]]</para>
+        </td>
+      </tr>
+      </blockTable>
+
+	<para style="P9">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0" style="Table2" repeatRows="1">
+      <tr>
+        <td>
+          <para style="terp_tblheader_Details">Partners</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details">Previous Due</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['0']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['1']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['2']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['3']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['4']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['5']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">[[ data['form']['6']['name'] ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">Not Due</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">Total</para>
+        </td>
+      </tr>	
+      <tr>
+        <td>
+          <para style="P3">[[ repeatIn(get_lines(), 'partner') ]]</para>
+          <para style="P2_content">[[ strip_name(partner['name'], 16) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['prevdue']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['0']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['1']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['2']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['3']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['4']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['5']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['6']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['undue']) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(partner['row_total']) ]]</para>
+        </td>
+      </tr>
+      <tr/>
+    </blockTable>
+
+	<!-- FUTURE BALANCE LINE -->
+	<blockTable colWidths="70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0" style="Table2">
+      <tr>
+        <td>
+          <para style="P2_content">Future Balance</para>
+        </td>
+        <td>
+          <para style="content">[[  ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('0')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('1')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('2')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('3')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('4')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('5')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('6')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_future_balance('undue')) ]]</para>
+        </td>
+        <td>
+          <para style="content"></para>
+        </td>
+      </tr>      
+	</blockTable>
+		
+	<!-- PO LINE -->
+	<blockTable colWidths="70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0" style="Table2">
+      <tr>
+        <td>
+          <para style="P2_content">Future Order</para>
+        </td>
+        <td>
+          <para style="content">[[  ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('0')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('1')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('2')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('3')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('4')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('5')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('6')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('undue')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_po_line('row_total')) ]]</para>
+        </td>
+      </tr>      
+	</blockTable>
+		
+	<!-- STOCK VALUE LINE -->
+	<blockTable colWidths="70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0" style="Table2">
+      <tr>
+        <td>
+          <para style="P2_content">Stock Value</para>
+        </td>
+        <td>
+          <para style="content">[[  ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('0')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('1')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('2')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('3')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('4')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('5')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('6')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('undue')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_stock_value_line('row_total')) ]]</para>
+        </td>
+      </tr>      
+	</blockTable>
+			
+	<!-- OVER CREDIT -->
+	<blockTable colWidths="70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0" style="Table2">
+      <tr>
+        <td>
+          <para style="P2_content">Over Credit</para>
+        </td>
+        <td>
+          <para style="content">[[  ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('0')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('1')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('2')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('3')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('4')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('5')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('6')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('undue')) ]]</para>
+        </td>
+        <td>
+          <para style="content">[[ formatLang(get_over_credit('row_total')) ]]</para>
+        </td>
+      </tr>      
+	</blockTable>	
+    <para style="P9">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>
+

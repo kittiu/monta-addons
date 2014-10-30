@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="invoice_supplier_form_ext" model="ir.ui.view">
+            <field name="name">invoice.supplier.form.ext</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/form/sheet/group//group/field[@name='date_invoice']" position="before">
+						<field name="is_boj" invisible="0"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="invoice_tree_ext" model="ir.ui.view">
+            <field name="name">invoice.tree.ext</field>
+            <field name="inherit_id" ref="account.invoice_tree" />
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/tree/field[@name='date_invoice']" position="before">
+						<field name="is_boj" invisible="0"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="view_account_invoice_filter_ext" model="ir.ui.view">
+            <field name="name">view.account.invoice.filter.ext</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter" />
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/search/separator" position="before">
+	                    <separator/>
+	                    <filter domain="[('is_boj','=',True)]" string="อบจ" help="อบจ" />
+	                    <filter domain="[('is_boj','=',False)]" string="ไม่ใช่ อบจ" help="ไม่ใช่ อบจ" />
+	                    <separator/>
+	                    <filter icon="terp-go-today" string="Today" domain="[('date_invoice','&lt;=',time.strftime('%%Y-%%m-%%d 23:59:59')),('date_invoice','&gt;=',time.strftime('%%Y-%%m-%%d 00:00:00'))]" help="Orders processed Today or planned for Today"/>
+	            	</xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

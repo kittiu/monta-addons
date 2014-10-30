@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!--
+	    Resource: product.price.type
+	    -->
+        <record id="wholesale_list_price" model="product.price.type">
+            <field name="name">Wholesale Public Price</field>
+            <field name="field">wholesale_list_price</field>
+        </record>
+        <record id="wholesale_standard_price" model="product.price.type">
+            <field name="name">Wholesale Cost Price</field>
+            <field name="field">wholesale_standard_price</field>
+        </record>        
+
+        <!--
+	    Price list
+	    -->
+        <record id="wholesale_list0" model="product.pricelist">
+            <field name="name">Public Wholesale Pricelist</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="wholesale_ver0" model="product.pricelist.version">
+            <field name="pricelist_id" ref="wholesale_list0"/>
+            <field name="name">Default Public Wholesale Pricelist Version</field>
+        </record>
+        <record id="wholesale_item0" model="product.pricelist.item">
+            <field name="price_version_id" ref="wholesale_ver0"/>
+            <field name="base" ref="wholesale_list_price"/>
+            <field name="name">Default Public Wholesale Pricelist Line</field>
+        </record>
+
+        <!--
+        Property
+        -->
+        <record forcecreate="True" id="property_product_wholesale_pricelist" model="ir.property">
+            <field name="name">property_product_wholesale_pricelist</field>
+            <field name="fields_id" search="[('model','=','res.partner'),('name','=','property_product_wholesale_pricelist')]"/>
+            <field eval="'product.pricelist,'+str(ref('wholesale_list0'))" name="value"/>
+        </record>
+
+    </data>
+</openerp>

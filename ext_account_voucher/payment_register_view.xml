@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_payment_register_filter_ext" model="ir.ui.view">
+            <field name="name">view.payment.register.filter.ext</field>
+            <field name="model">payment.register</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="payment_register.view_payment_register_filter" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/search/filter[@string='Transfer']" position="after">
+	                    <separator/>
+	                    <filter icon="terp-go-today" string="Today" domain="[('date_payment','&lt;=',time.strftime('%%Y-%%m-%%d 23:59:59')),('date_payment','&gt;=',time.strftime('%%Y-%%m-%%d 00:00:00'))]" help="Orders processed Today or planned for Today"/>
+                    </xpath>
+                </data>
+			</field>
+        </record>    	
+    </data>
+</openerp>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>        
+        <!-- Sales Shop -->
+        <record id="view_shop_form_ext" model="ir.ui.view">
+            <field name="name">view.shop.form.ext</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="sale.view_shop_form"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/form/group/group/field[@name='pricelist_id']" position="before">     
+                	<field domain="[('type','=','sale')]" required="True" name="wholesale_pricelist_id" groups="product.group_sale_pricelist"/>
+				</xpath>  
+        	</field>
+        </record>
+        <record id="view_shop_tree_ext" model="ir.ui.view">
+            <field name="name">view.shop.tree.ext</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="sale.view_shop_tree"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/tree/field[@name='pricelist_id']" position="before"> 
+                    <field name="wholesale_pricelist_id" groups="product.group_sale_pricelist"/>
+				</xpath>  
+        	</field>
+        </record>
+        
+        <!-- Sales Order -->
+
+        <record id="view_sales_order_filter_ext" model="ir.ui.view">
+            <field name="name">view.sales.order.filter.ext</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter" />
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/search/separator" position="before">
+	                    <separator/>
+	                    <filter domain="[('is_cigarette','=',True)]" string="Cigarette" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_order_form_ext" model="ir.ui.view">
+            <field name="name">view.order.form.ext</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <!-- Header Section -->
+                <!-- 
+                	* Add "Cigarette?" field.
+                	* If Cigarette = True, display Wholesale Pricelist and make it required.
+                 -->
+            	<xpath expr="/form/sheet/group/group/field[@name='project_id']" position="after">
+                    <field name="is_cigarette"/>
+				</xpath>    
+				<xpath expr="/form/sheet/group/group/field[@name='pricelist_id']" position="before">
+                    <field domain="[('type','=','sale')]" name="wholesale_pricelist_id" on_change="onchange_wholesale_pricelist_id(wholesale_pricelist_id,order_line)"
+                        attrs="{'invisible': [('is_cigarette','&lt;&gt;',True)], 'required': [('is_cigarette','=',True)]}" groups="product.group_sale_pricelist"/>
+				</xpath>
+				<!-- Order Line Section -->
+				<!-- 
+					* If Cigarette = True, display order line with Wholesales Fields
+					* If Cigarette = False, display original order lines 
+				 -->
+            	<xpath expr="/form/sheet/notebook/page/field[@name='order_line']" position="attributes">
+            	    <attribute name="attrs">{'invisible': [('is_cigarette','=',True)]}</attribute>
+            	</xpath>
+            	<xpath expr="/form/sheet/notebook/page/field[@name='order_line']" position="after">
+					<field name="wholesale_order_line" attrs="{'invisible': [('is_cigarette','&lt;&gt;',True)]}" context="{'wholesale_pricelist':wholesale_pricelist_id}">
+	                    <form string="Sales Order Lines" version="7.0">
+	                        <header groups="base.group_user">
+	                            <button name="%(sale.action_view_sale_order_line_make_invoice)d" states="confirmed" string="Invoice" type="action" icon="terp-document-new"/>
+	                            <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" statusbar_colors='{"exception":"red","cancel":"red"}'/>
+	                        </header>
+	                        <group>
+	                            <group>
+	                                <field name="product_id" options="{'limit': 10, 'create': false, 'create_edit': false}"
+	                                    context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}"
+	                                    groups="base.group_user"
+	                                    on_change="product_id_change(parent.pricelist_id, product_id, product_uom_qty, product_uom, product_uos_qty, product_uos, name, parent.partner_id, False, True, parent.date_order, False, parent.fiscal_position, False, context)"/>
+	                                <label for="product_uom_qty"/>
+	                                <div>
+	                                    <field
+	                                        context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}"
+	                                        name="product_uom_qty" class="oe_inline"
+	                                        on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, False, False, parent.date_order, False, parent.fiscal_position, True, context)"/>
+	                                    <field name="product_uom"  options="{'limit': 10, 'create': false, 'create_edit': false}"
+	                                    	groups="product.group_uom" class="oe_inline oe_no_button"
+	                                        on_change="product_uom_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, False, False, parent.date_order, context)"/>
+	                                </div>
+	                                <label for="product_uos_qty" groups="product.group_uos"/>
+	                                <div groups="product.group_uos">
+	                                    <field name="product_uos_qty" class="oe_inline"/>
+	                                    <field name="product_uos" options='{"no_open": True}' class="oe_inline"/>
+	                                </div>
+			                        <!-- start modification -->
+			                        <field name="wholesale_price_unit"/>
+			                        <field name="wholesale_unit_discount"/>
+			                        <!-- end modification -->	                                
+	                                <field name="price_unit"/>
+	                                <label for="discount" groups="sale.group_discount_per_so_line"/>
+	                                <div name="discount" groups="sale.group_discount_per_so_line">
+	                                    <field name="discount" class="oe_inline"/> %%
+	                                </div>
+	                            </group>
+	                            <group>
+	                                <field name="tax_id" widget="many2many_tags" domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"/>
+	                                <field name="type"/>
+	                                <field name="th_weight"/>
+	                                <!-- we should put a config wizard for these two fields -->
+	                                <field name="address_allotment_id"  options="{'limit': 10, 'create': false, 'create_edit': false}"/>
+	                            </group>
+	                        </group>
+	                        <label for="name"/>
+	                        <field name="name"/>
+	                        <div groups="base.group_no_one">
+	                            <label for="invoice_lines"/>
+	                            <field name="invoice_lines"/>
+	                        </div>
+	                    </form>
+	                    <tree string="Sales Order Lines" editable="bottom">
+	                        <field name="sequence" widget="handle"/>
+	                        <field name="state" invisible="1"/>
+	                        <field name="th_weight" invisible="1"/>
+	                        <field name="product_id" options="{'limit': 10, 'create': false, 'create_edit': false}"
+	                            context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}"
+	                            groups="base.group_user" 
+	                            on_change="product_id_change(parent.pricelist_id, product_id, product_uom_qty, product_uom, product_uos_qty, product_uos, name, parent.partner_id, False, True, parent.date_order, False, parent.fiscal_position, False, context)"/>
+	                        <field name="name"/>
+	                        <field name="product_uom_qty"
+	                            context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'shop':parent.shop_id, 'uom':product_uom}"
+	                            on_change="product_id_change(parent.pricelist_id, product_id, product_uom_qty, product_uom, product_uos_qty, product_uos, name, parent.partner_id, False, False, parent.date_order, False, parent.fiscal_position, True, context)"/>
+	                        <field name="product_uom" 
+	                            on_change="product_uom_change(parent.pricelist_id, product_id, product_uom_qty, product_uom, product_uos_qty, product_uos, name, parent.partner_id, False, False, parent.date_order, context)"
+	                            groups="product.group_uom" options="{'limit': 10, 'create': false, 'create_edit': false, 'no_open': True}"/>
+	                        <field name="product_uos_qty" groups="product.group_uos" invisible="1"/>
+	                        <field name="product_uos" string="UoS" groups="product.group_uos" invisible="1"/>
+	                        <field name="tax_id" widget="many2many_tags" domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" options="{'limit': 10, 'create': false, 'create_edit': false}"/>
+	                        <!-- start modification -->
+	                        <field name="wholesale_price_unit" invisible="1"/>
+	                        <field name="wholesale_price_unit_readonly"/>
+	                        <field name="wholesale_unit_discount"/>
+	                        <field name="wholesale_price_subtotal"/>   
+	                        <!-- end modification -->
+	                        <field name="price_unit" invisible="1"/>
+	                        <field name="price_unit_readonly"/>
+	                        <field name="discount" groups="sale.group_discount_per_so_line"/>
+	                        <field name="price_subtotal"/>
+	                    </tree>
+	                </field>
+				</xpath>
+				<!-- Footer Section -->
+				<xpath expr="/form/sheet/notebook/page/group[@name='sale_total']" position="replace">
+					<group>
+	                    <group class="oe_subtotal_footer oe_left" colspan="1" name="wholesale_sale_total"  attrs="{'invisible': [('is_cigarette','&lt;&gt;',True)]}">
+	                        <field name="wholesale_amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+	                        <field name="wholesale_amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+	                        <div class="oe_subtotal_footer_separator oe_inline">
+	                            <label for="wholesale_amount_total" />
+	                            <button name="button_dummy"
+	                                states="draft,sent" string="(update)" type="object" class="oe_edit_only oe_link"/>
+	                        </div>
+	                        <field name="wholesale_amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+	                        <field name="wholesale_discount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+	                        <field name="wholesale_balance" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+	                    </group>		
+	                    <!-- Complete copied from sale.sale_view.xml -->
+                        <group class="oe_subtotal_footer oe_right" colspan="1" name="sale_total">
+                            <field name="amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline">
+                                <label for="amount_total" />
+                                <button name="button_dummy"
+                                    states="draft,sent" string="(update)" type="object" class="oe_edit_only oe_link"/>
+                            </div>
+                            <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        </group>	                    
+                    </group>
+				</xpath>  	
+			</field>
+        </record>
+        
+        <record id="view_quotation_tree_ext" model="ir.ui.view">
+            <field name="name">view.quotation.tree.ext</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/tree/field[@name='amount_total']" position="replace">
+                    <field name="wholesale_amount_untaxed" sum="Total Untaxed Amount"/>
+                    <field name="wholesale_amount_total" sum="Total Amount"/>
+                    <field name="wholesale_balance" sum="Total Balance"/>
+				</xpath>   
+        	</field>
+        </record>
+        <record id="view_order_tree_ext" model="ir.ui.view">
+            <field name="name">view.order.tree.ext</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='date_order']" position="before">
+					<field name="is_cigarette"/>
+                </xpath>
+            	<xpath expr="/tree/field[@name='amount_total']" position="replace">
+                    <field name="wholesale_amount_untaxed" sum="Total Untaxed Amount"/>
+                    <field name="wholesale_amount_total" sum="Total Amount"/>
+                    <field name="wholesale_balance" sum="Total Balance"/>
+				</xpath>   
+        	</field>
+        </record>
+    </data>
+</openerp>

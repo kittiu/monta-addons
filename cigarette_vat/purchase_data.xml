@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!--
+	    Price list
+	    -->
+        <record id="wholesale_purchase_list0" model="product.pricelist">
+            <field name="name">Default Purchase Wholesale Pricelist</field>
+            <field name="type">purchase</field>
+        </record>
+        <record id="wholesale_purchase_ver0" model="product.pricelist.version">
+            <field name="pricelist_id" ref="wholesale_purchase_list0"/>
+            <field name="name">Default Public Wholesale Pricelist Version</field>
+        </record>
+        <record id="wholesale_purchase_item0" model="product.pricelist.item">
+            <field name="price_version_id" ref="wholesale_purchase_ver0"/>
+            <field name="base" ref="wholesale_standard_price"/>
+            <field name="name">Default Wholesale Purchase Pricelist Line</field>
+        </record>
+
+        <!--
+        Property
+        -->
+        <record forcecreate="True" id="property_product_wholesale_pricelist_purchase" model="ir.property">
+            <field name="name">property_product_wholesale_pricelist_purchase</field>
+            <field name="fields_id" search="[('model','=','res.partner'),('name','=','property_product_wholesale_pricelist_purchase')]"/>
+            <field eval="'product.pricelist,'+str(wholesale_purchase_list0)" name="value"/>
+        </record>
+
+    </data>
+</openerp>

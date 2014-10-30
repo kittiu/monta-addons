@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="product_product_tree_view_ext" model="ir.ui.view">
+            <field name="name">product.product.tree.view.ext</field>
+            <field name="inherit_id" ref="product.product_product_tree_view" />
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="/tree/field[@name='uom_id']" position="before">
+                    	<field name="uom_desc"/>
+                    </xpath>          
+                    <xpath expr="/tree/field[@name='qty_available']" position="after">
+                        <field name="wholesale_cost" string="Stock Value (cost)" sum="Total Cost"/>
+                        <field name="wholesale_price" string="Stock Value (sales)" sum="Total Price"/>
+                    </xpath>          
+				</data>
+            </field>
+        </record> 
+        
+
+        <record id="product_normal_form_view_ext" model="ir.ui.view">
+            <field name="name">product.normal.form.view.ext</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <group name="status" position="after" version="7.0">
+                    <group string="Stock Values" attrs="{'invisible': [('type', '=', 'service')]}" groups="base.group_user">
+                        <field name="wholesale_cost" class="oe_inline"/>
+                        <field name="wholesale_price" class="oe_inline"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

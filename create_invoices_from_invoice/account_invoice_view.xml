@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>      
+        <!-- Supplier Invoice -->
+        <record id="view_account_invoice_filter_ext" model="ir.ui.view">
+            <field name="name">view.account.invoice.filter.ext</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/search/field[@name='period_id']" position="after">
+                    <field name="ref_invoice_id"/>
+            	</xpath>
+            </field>
+        </record>
+        	
+        <record id="invoice_tree_ext" model="ir.ui.view">
+            <field name="name">invoice.tree.ext</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">   
+            	<xpath expr="/tree/field[@name='origin']" position="after">
+            		<field name="ref_invoice_id"/>
+            	</xpath>        	
+            </field>
+        </record>
+        	
+        <record id="invoice_supplier_form_ext" model="ir.ui.view">
+            <field name="name">invoice.supplier.form.ext</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">   
+            	<xpath expr="/form/sheet/div" position="after">
+	                <div class="oe_right oe_button_box">
+	                    <button name="%(action_create_invoices_from_invoice)d" string="Create invoice(s) from this inovice" states="cancel" type="action"/>
+	                </div>  
+            	</xpath>
+            	<xpath expr="/form/sheet/group//field[@name='journal_id']" position="after">
+	                <field name="ref_invoice_id" attrs="{'invisible': [('ref_invoice_id', '=', False)]}"/>
+            	</xpath>
+			</field>
+        </record>
+	</data>
+</openerp>
